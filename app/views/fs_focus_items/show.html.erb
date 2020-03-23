@@ -1,0 +1,36 @@
+<h2>Showing Focus Item</h2>
+<p id="notice"><%= notice %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th> Manager </th>
+      <th> Rep </th>
+      <th> Customer </th>
+      <th> Part code </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td> <%= display_name(@fs_focus_item.team) %> </td>
+      <td> <%= display_name(@fs_focus_item.rep) %> </td>
+      <td> <%= @fs_focus_item.customer %> </td>
+      <td> <%= @fs_focus_item.part_code %> </td>
+    </tr>
+  </tbody>
+</table>
+<p><strong> Description: </strong><%= @fs_focus_item.part_desc %></p>
+<table>
+  <thead>
+    <tr>
+      <th> Start date </th>
+      <th> End date </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td> <%= display_date(@fs_focus_item.start_date) %> </td>
+      <td> <%= display_date(@fs_focus_item.end_date) %> </td>
+    </tr>
+  </tbody>
+</table>
+<%= link_to 'Edit', edit_fs_focus_item_path(@fs_focus_item), class: "btn btn-primary" %>
+<%= link_to 'Back', fs_focus_items_path, class: "btn btn-primary" %>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<table id="normal_dt"  class="stripe" class="mytable" class="display" cellspacing="0" >
+  <thead>
+    <tr>
+      <th>Manager</th>
+      <th>Rep</th>
+      <th>Customer</th>
+      <th>Part desc</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fs_focus_items.each do |fs_focus_item| %>
+      <tr>
+        <td> <%= display_name(fs_focus_item.team) %> </td>
+        <td> <%= display_name(fs_focus_item.rep) %> </td>
+        <td><%= fs_focus_item.customer %></td>
+        <td><%= fs_focus_item.part_desc %></td>
+        <td> <%= display_date(fs_focus_item.start_date) %> </td>
+        <td> <%= display_date(fs_focus_item.end_date) %> </td>
+        <td><%= link_to 'Edit', edit_fs_focus_item_path(fs_focus_item), class: "btn btn-primary" %></td>
+        <td><%= link_to 'Delete', fs_focus_item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Focus Item', new_fs_focus_item_path, class: "btn btn-primary" %>

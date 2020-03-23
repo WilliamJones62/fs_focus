@@ -1,0 +1,46 @@
+<%= form_with(model: fs_focus_item, local: true) do |form| %>
+  <% if fs_focus_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fs_focus_item.errors.count, "error") %> prohibited this fs_focus_item from being saved:</h2>
+
+      <ul>
+      <% fs_focus_item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table>
+    <thead>
+      <tr>
+        <th> Manager </th>
+        <th> Rep </th>
+        <th> Customer </th>
+        <th> Part code </th>
+    </thead>
+    <tbody>
+      <tr>
+        <td> <%= display_name(@fs_focus_item.team) %> </td>
+        <td> <%= display_name(@fs_focus_item.rep) %> </td>
+        <td> <%= @fs_focus_item.customer %> </td>
+        <td> <%= @fs_focus_item.part_code %> </td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong> Description: </strong><%= @fs_focus_item.part_desc %></p>
+
+  <div class="field">
+    <%= form.label :start_date %>
+    <%= form.date_field :start_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_date %>
+    <%= form.date_field :end_date  %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
